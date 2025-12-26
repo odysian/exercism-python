@@ -32,7 +32,6 @@ def convert(input_grid):
             start = digit_idx * 3
             end = start + 3
 
-            # Extract this digit's pattern from all 4 lines
             pattern = (
                 lines[0][start:end],
                 lines[1][start:end],
@@ -40,11 +39,9 @@ def convert(input_grid):
                 lines[3][start:end],
             )
 
-            # Step 5: Look up the pattern
             digit = PATTERNS.get(pattern, "?")
             digits.append(digit)
 
         rows.append("".join(digits))
 
-    # Step 6: Join rows with commas
     return ",".join(rows)
