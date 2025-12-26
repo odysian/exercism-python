@@ -8,10 +8,8 @@ def rebase(input_base, digits, output_base):
         raise ValueError("all digits must satisfy 0 <= d < input base")
 
     value = 0
-    counter = 0
-    for i in digits[::-1]:
-        value += i * (input_base**counter)
-        counter += 1
+    for position, digit in enumerate(digits[::-1]):
+        value += digit * (input_base**position)
 
     if value == 0:
         return [0]
